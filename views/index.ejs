@@ -1,0 +1,46 @@
+<%-include('./partials/header.ejs')%>
+
+
+<main>
+  <div class="coluna-cadastro">
+
+    <div class="coluna">
+      <h3>ID</h3>
+    </div>
+
+    <div class="coluna">
+      <h3>NOME</h3>
+    </div>
+
+    <div class="coluna">
+      <h3>PRODUTO</h3>
+    </div>
+    
+  </div>
+
+<div class="body" >
+  <% produtosPet.forEach(produto => { %>
+   <div class="row" >
+    <span class="item" ><%= produto.id  %> </span>
+    <span class="item" ><%= produto.nome %></span>
+    <span class="item" ><%= produto.valor %></span>
+    <span class="acoes" >
+      <form action="/editar/<%=produto.id%>?_method=GET" method="get">
+       <button type="submit">Editar</button>
+      </form>
+    </span>
+   </div>
+   <span class="item" >
+    <form action="/deletar/<%=produto.id%>?_method=DELETE" method="post">
+      <button type="submit" >Deletar</button>
+    </form>
+   </span>
+  <% }) %>
+</div>
+
+</main>
+
+<%-include('./partials/footer.ejs')%>
+
+
+<!-- express nomeProjeto --ejs -->
