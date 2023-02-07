@@ -27,30 +27,30 @@ router.get('/', function(req, res, next) {
 
 router.get('/adicionar-produto', function(req,res){
   const produtosPet = getProdutos();
-res.render('adicionar-produto',{ title: 'Express', produtoPet:getProdutos })
+  res.render('adicionar-produto', { title: 'Express', produtosPet: getProdutos() });
 })
 
 router.post('/', function(req,res){
   let produtos = getProdutos();
 produtos.push({
-  id:produtos.at(-1).id + 1,
+  id:produtos[produtos.length - 1].id + 1,
   ...req.body
   
 });
 saveProdutos(produtos)
-res.redirect('/index')
+res.redirect('/')
 })
+
 
 router.delete('/deletar/:id', (req,res)=>{
   const id = req.params.id;
   let produtos = getProdutos();
 
-   produtos = produtos.filter(produto => produtos.id != id)
+   produtos = produtos.filter(produto => produto.id != id)
 
   saveProdutos(produtos)
-  res.redirect('/index')
+  res.redirect('/')
 })
-
 // Editar produtosPet
 
 router.get('/editar/:id', (req,res)=>{
@@ -69,7 +69,7 @@ router.put('/:id', (req,res)=>{
 
   produtoPet[index] = {...produtoPet[index], ...req.body};
   saveProdutos(produtoPet);
-  res.redirect('/index')
+  res.redirect('/')
 
 })
 

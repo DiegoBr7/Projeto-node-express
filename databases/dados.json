@@ -1,17 +1,7 @@
 [
     {
-        "id": "1",
-        "nome": "racao",
-        "valor": "80.00"
-    },
-    {
         "id": "2",
-        "nome": "brinquedo",
+        "nome": "brinquedo de natal",
         "valor": "50.00"
-    },
-    {
-        "id": "3",
-        "nome": "osso",
-        "valor": "10.00"
     }
 ]
