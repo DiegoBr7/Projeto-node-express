@@ -2,11 +2,15 @@
 
 <main>
  <h2>Adicionar Produto</h2>
- <form class="adicionar-forma" action="/index" method="post" >
-  <label for="Produto">Produto</label>
-  <input type="text " name="Produto" id="Produto">
-  <button type="submit" >Enviar</button>
- </form>
+ <form class="adicionar-forma" action="/" method="post">
+  <label for="nome">Nome do Produto</label>
+  <input type="text" name="nome" id="nome">
+  
+  <label for="valor">Valor</label>
+  <input type="text" name="valor" id="valor">
+  
+  <button type="submit">Enviar</button>
+</form>
 </main>
 
 <%-include('./partials/footer.ejs')%>

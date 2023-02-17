@@ -1,7 +1,12 @@
 [
     {
-        "id": "2",
-        "nome": "brinquedo de natal",
-        "valor": "50.00"
+        "id": 0,
+        "nome": "adfvasdf",
+        "valor": "3541354"
+    },
+    {
+        "id": 1,
+        "nome": "asasasaa",
+        "valor": "141414"
     }
 ]

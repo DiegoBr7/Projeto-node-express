@@ -30,11 +30,27 @@ router.get('/adicionar-produto', function(req,res){
   res.render('adicionar-produto', { title: 'Express', produtosPet: getProdutos() });
 })
 
+router.post('/adicionar-produto', function(req,res){
+  let produtos = getProdutos();
+  produtos.push({
+    id:Number(produtos.at(-1).id) + 1,
+  ...req.body
+  
+});
+saveProdutos(produtos)
+res.redirect('/')
+})
+
+
+
+
 router.post('/', function(req,res){
   let produtos = getProdutos();
+  console.log(produtos.length)
 produtos.push({
-  id:produtos[produtos.length - 1].id + 1,
-  ...req.body
+  id: produtos.length === 0 ? 0 : Number(produtos.at(-1).id) + 1,
+  ...req.body,
+  
   
 });
 saveProdutos(produtos)
