@@ -3,6 +3,7 @@ var express = require('express');
 var router = express.Router();
 const fs = require('fs');
 const path = require('path');
+const produtosControler = require('../controllers/produtosControler');
 
 const produtoPath = path.resolve(__dirname, '../databases/dados.json')
 
@@ -18,10 +19,7 @@ fs.writeFileSync(produtoPath, JSON.stringify(produtos , null , 4))
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  const produtosPet = getProdutos();
-  res.render('index', { title: 'Express', produtosPet });
-});
+router.get('/', produtosControler.index);
 
 // adicionar produtosPet
 
